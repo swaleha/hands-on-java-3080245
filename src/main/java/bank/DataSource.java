@@ -2,16 +2,16 @@ package bank;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.SQLException;
 public class DataSource {
 
-  public static Connection connect () {
-    String db_file =   "jdbc:sqllite:resources/bank.db";
+  public static Connection connect() {
+    String db_file =   "jdbc:sqlite:resources/bank.db";
     Connection connection = null;
-    try {
+    try{
       connection = DriverManager.getConnection(db_file);
       System.out.println("we're connected");
-    } catch (SQLException e) {
+    } catch(SQLException e){
       e.printStackTrace();
     }
     return connection;
@@ -20,4 +20,4 @@ public class DataSource {
   public static void main(String args[]){
     connect();
   }
-} 
+}
